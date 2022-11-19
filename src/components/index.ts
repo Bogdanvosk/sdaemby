@@ -1,1 +1,6 @@
 export { default as Header } from './Header/Header'
+export { default as Container } from './Container/Container'
+export { default as Breadcrumbs } from './Breadcrumbs/Breadcrumbs'
+export { default as Title } from './Title/Title'
+export { default as Search } from './Search/Search'
+export { default as Card } from './Card/Card'
