@@ -16,6 +16,7 @@ export type TTitle = {
 }
 
 export type TCard = {
+	id?: number
 	imgSrc: string
 	title: string
 	text: string

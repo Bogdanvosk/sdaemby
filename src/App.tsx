@@ -1,31 +1,30 @@
-import {
-	Header,
-	Breadcrumbs,
-	Card,
-	Search,
-	Title,
-	Container
-} from './components/'
+import { Breadcrumbs, Search, Title, Cards } from './components/'
 
-import newsImage from './assets/news.jpg'
+import Layout from './components/Layout/Layout'
+import { useEffect, useState } from 'react'
+
+import axios from 'axios'
 
 function App() {
+	const [news, setNews] = useState([])
+
+	useEffect(() => {
+		axios
+			.get('http://localhost:3000/news')
+			.then(({ data }) => setNews(data))
+	}, [])
 	return (
 		<>
-			<Header />
-			<Breadcrumbs />
-			<Container>
-				<div className='layout-head'>
-					<Title size={30}>Новости</Title>
-					<Search />
+			<Layout>
+				<div className='news'>
+					<Breadcrumbs />
+					<div className='layout-head'>
+						<Title size={30}>Новости</Title>
+						<Search />
+					</div>
+					<Cards news={news} />
 				</div>
-				<Card
-					imgSrc={newsImage}
-					date='14 Января 2008'
-					title='Линия Сталина: суровый отдых в усадьбах на сутки'
-					text='Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'
-				/>
-			</Container>
+			</Layout>
 		</>
 	)
 }

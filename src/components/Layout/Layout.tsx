@@ -1,8 +1,14 @@
 import React from 'react'
+import Container from '../Container/Container'
+import Header from '../Header/Header'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<div className='layout'>{children}</div>
+		<>
+			<Header />
+			<Container>{children}</Container>
+			{/* <Footer /> */}
+		</>
 	)
 }
 

@@ -3,7 +3,7 @@ import styles from './Header.module.scss'
 
 import logo from '../../assets/logo.png'
 import locationSvg from '../../assets/icons/location.svg'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
 	return (
@@ -109,9 +109,9 @@ const Header = () => {
 			<div className={styles.declaration}>
 				<Container>
 					<div className={styles.declarationWrapper}>
-						<div className={styles.logo}>
+						<Link to='/' className={styles.logo}>
 							<img src={logo} alt='Logo' />
-						</div>
+						</Link>
 						<ul className={styles.declarationList}>
 							<li className={styles.declarationItem}>
 								<NavLink
